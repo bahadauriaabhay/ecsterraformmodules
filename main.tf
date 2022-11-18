@@ -9,6 +9,10 @@ module "ecs" {
 
   on_demand_percentage = 0
   asg_min              = 1
-  asg_max              = 10
-  asg_target_capacity  = 50
+  asg_max              = 3
+  desired_capacity     = 1
+  asg_target_capacity  = 80
+
+  container_cpu        = 100
+  container_memory     = 512
 }

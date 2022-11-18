@@ -25,8 +25,8 @@ resource "aws_ecs_task_definition" "task" {
     {
       name      = "app-${var.name}"
       image     = "895249166333.dkr.ecr.us-east-1.amazonaws.com/myimages:latest"
-      cpu       = 100
-      memory    = 512
+      cpu       = "${var.container_cpu}"
+      memory    = "${var.container_memory}"
       essential = true
       portMappings = [
         {
