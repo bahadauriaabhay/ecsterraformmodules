@@ -24,14 +24,14 @@ resource "aws_ecs_task_definition" "task" {
   container_definitions = jsonencode([
     {
       name      = "app-${var.name}"
-      image     = "895249166333.dkr.ecr.us-east-1.amazonaws.com/myimages:latest"
+      image     = "${var.imageURI}"
       cpu       = "${var.container_cpu}"
       memory    = "${var.container_memory}"
       essential = true
       portMappings = [
         {
-          containerPort = 80
-          hostPort      = 80
+          containerPort = var.containerPort
+          hostPort      = var.hostPort
         }
       ]
     },

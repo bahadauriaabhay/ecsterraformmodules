@@ -13,7 +13,7 @@ resource "aws_autoscaling_group" "asg" {
 resource "aws_launch_configuration" "as_conf" {
   name_prefix   = "${var.name}-"
   image_id      = "ami-0fe77b349d804e9e6"
-  instance_type = var.instance_types
+  instance_type = "${var.instance_types}"
   security_groups = [aws_security_group.allow_tls.id]
   associate_public_ip_address = true
   user_data = <<EOF

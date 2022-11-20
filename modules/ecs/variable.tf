@@ -1,6 +1,9 @@
 variable "health_check_type" {
   default = "ELB"
 }
+variable "imageURI" {
+  default = "895249166333.dkr.ecr.us-east-1.amazonaws.com/ecsapprepository:latest"
+}
 variable "desired_capacity" {
   default = "1"
 }
@@ -17,6 +20,12 @@ variable "container_cpu" {
 }
 variable "container_memory" {
   default = "512"
+}
+variable "containerPort" {
+  default = 80
+}
+variable "hostPort" {
+  default = 80
 }
 variable "instance_types" {
   description = "Instance type for ECS workers"
