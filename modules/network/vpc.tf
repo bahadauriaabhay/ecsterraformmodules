@@ -57,3 +57,35 @@ resource "aws_subnet" "private_us_east_1b" {
 #data "aws_vpc" "main" {
 #  vpc_id = aws_vpc.main.id
 #}
+
+
+
+resource "aws_eip" "nat_eip" {
+  vpc = true
+  #depends_on = [aws_internet_gateway.id]
+}
+
+resource "aws_nat_gateway" "nat" {
+  allocation_id = aws_eip.nat_eip.id
+  subnet_id     = aws_subnet.public_us_east_1a.id 
+}
+
+
+resource "aws_route_table" "my_vpc_private" {
+  vpc_id = aws_vpc.main.id #private
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat.id
+  }
+}
+
+resource "aws_route_table_association" "my_vpc_us_east_1a_private" {
+  subnet_id      = aws_subnet.private_us_east_1a.id
+  route_table_id = aws_route_table.my_vpc_private.id
+}
+
+resource "aws_route_table_association" "my_vpc_us_east_1b_private" {
+  subnet_id      = aws_subnet.private_us_east_1b.id
+  route_table_id = aws_route_table.my_vpc_private.id
+}

@@ -2,7 +2,7 @@ variable "health_check_type" {
   default = "ELB"
 }
 variable "imageURI" {
-  default = "895249166333.dkr.ecr.us-east-1.amazonaws.com/ecsapprepository:latest"
+  default = "895249166333.dkr.ecr.us-east-1.amazonaws.com/ecsapprepository:13"
 }
 variable "desired_capacity" {
   default = "1"
