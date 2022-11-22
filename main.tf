@@ -15,6 +15,6 @@ module "ecs" {
 
   container_cpu        = 100
   container_memory     = 512
-  containerPort        = 8080
+  containerPort        = 80
   hostPort             = 80
 }
