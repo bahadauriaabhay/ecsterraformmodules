@@ -28,9 +28,14 @@ imageURI         = []
 
 ##### terraform command
 #to initialize module dependencies
-```$terrafor init  
+
+```terraform init  
+
 #it will show details what terraform creating       
-```$terraform plan     
+
+```terraform plan     
+
 #to create planned resource 
-```$terraform apply 
-    
+
+```terraform apply 
+
