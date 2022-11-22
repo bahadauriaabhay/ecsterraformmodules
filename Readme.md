@@ -27,15 +27,15 @@ imageURI         = []
 ```
 
 ##### terraform command
-#to initialize module dependencies
+###### to initialize module dependencies
 
-```terraform init  
+``` terraform init ```
 
-#it will show details what terraform creating       
+##### it will show details what terraform creating       
 
-```terraform plan     
+``` terraform plan ```    
 
-#to create planned resource 
+##### to create planned resource 
 
-```terraform apply 
+``` terraform apply ```
 
