@@ -1,6 +1,4 @@
-module "network" {
-  source               = "../network"
-}
+
 
 resource "aws_security_group" "allow_tls" {
   name        = "allow-tls-${var.name}"
