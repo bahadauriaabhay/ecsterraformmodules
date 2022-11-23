@@ -13,7 +13,7 @@ variable "force_delete" {
 
 variable "name" {
   description = "Name of this ECS cluster."
-  default = "ecs"
+  default = "demo1"
 }
 variable "container_cpu" {
   default = "100"
@@ -146,4 +146,9 @@ variable "vpn_cidr" {
 variable "asg_arn" {
 
 }
-variable "public_sub" {}
+variable "public_sub" {
+
+}
+variable "desired_count" {
+  default = 1
+}

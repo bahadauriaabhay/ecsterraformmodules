@@ -29,7 +29,7 @@ resource "aws_ecs_service" "ecs-service" {
   	iam_role        = aws_iam_role.ecs-service-role.arn
   	cluster         = var.name
   	task_definition = aws_ecs_task_definition.task.arn
-  	desired_count   = 1
+  	desired_count   = var.desired_count
     force_new_deployment = true
 
   	load_balancer {

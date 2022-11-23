@@ -2,7 +2,7 @@ resource "aws_autoscaling_group" "asg" {
   name                      = var.name
   max_size                  = var.asg_max
   min_size                  = var.asg_min
-  health_check_grace_period = 300
+  health_check_grace_period = var.health_check_grace_period
   health_check_type         = var.health_check_type
   desired_capacity          = var.desired_capacity
   force_delete              = var.force_delete
@@ -12,7 +12,7 @@ resource "aws_autoscaling_group" "asg" {
 
 resource "aws_launch_configuration" "as_conf" {
   name_prefix   = "${var.name}-"
-  image_id      = "ami-0fe77b349d804e9e6"
+  image_id      = var.image_id
   instance_type = "${var.instance_types}"
   security_groups = var.asg_sg
 #  associate_public_ip_address = true
