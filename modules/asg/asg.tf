@@ -7,14 +7,14 @@ resource "aws_autoscaling_group" "asg" {
   desired_capacity          = var.desired_capacity
   force_delete              = var.force_delete
   launch_configuration      = aws_launch_configuration.as_conf.name
-  vpc_zone_identifier       = [module.network.private_subnet_ids1,module.network.private_subnet_ids2]
+  vpc_zone_identifier       = var.vpc_zone_id
 }
 
 resource "aws_launch_configuration" "as_conf" {
   name_prefix   = "${var.name}-"
   image_id      = "ami-0fe77b349d804e9e6"
   instance_type = "${var.instance_types}"
-  security_groups = [aws_security_group.allow_tls.id]
+  security_groups = var.asg_sg
 #  associate_public_ip_address = true
   user_data = <<EOF
 #!/bin/bash
@@ -24,4 +24,7 @@ EOF
   lifecycle {
     create_before_destroy = true
   }
+}
+output "asg_arn" {
+  value = aws_autoscaling_group.asg.arn
 }

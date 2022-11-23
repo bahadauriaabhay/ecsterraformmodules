@@ -60,7 +60,9 @@ variable "on_demand_base_capacity" {
 variable "vpc_id" {
   description = "VPC ID to deploy the ECS cluster."
 }
-
+variable "public_sg" {
+  
+}
 #variable "private_subnet_ids" {
 #  type        = list(string)
 #  default = [module.network.private_subnet_ids1,module.network.private_subnet_ids2]
@@ -140,3 +142,8 @@ variable "vpn_cidr" {
   default     = ["10.37.0.0/16"]
   description = "Cidr of VPN to grant ssh access to ECS nodes"
 }
+
+variable "asg_arn" {
+
+}
+variable "public_sub" {}

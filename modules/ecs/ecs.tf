@@ -17,6 +17,6 @@ resource "aws_ecs_capacity_provider" "ecs_capacity_provider" {
   name = "provider-${var.name}"
 
   auto_scaling_group_provider {
-    auto_scaling_group_arn = aws_autoscaling_group.asg.arn
+    auto_scaling_group_arn = var.asg_arn
   }
 }
