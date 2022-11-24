@@ -9,15 +9,15 @@ module "ecs" {
   public_sg            = [module.sgALB.sgALB]  
   public_sub           = [module.network.public_subnet_ids1,module.network.public_subnet_ids2]   
   on_demand_percentage = 0
-  asg_min              = 1
-  asg_max              = 3
-  desired_capacity     = 1
-  asg_target_capacity  = 80
+  asg_min              = var.asg_min
+  asg_max              = var.asg_max
+  desired_capacity     = var.desired_capacity
+  asg_target_capacity  = var.asg_target_capacity
 
-  container_cpu        = 100
-  container_memory     = 512
-  containerPort        = 80
-  hostPort             = 80
+  container_cpu        = var.container_cpu
+  container_memory     = var.container_memory
+  containerPort        = var.containerPort
+  hostPort             = var.hostPort
    
 }
 module "sg" {
